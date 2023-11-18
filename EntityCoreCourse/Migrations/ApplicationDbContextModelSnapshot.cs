@@ -39,49 +39,7 @@ namespace EntityCoreCourse.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Blogs");
-                });
-
-            modelBuilder.Entity("EntityCoreCourse.Posts", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("BlogId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Context")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BlogId");
-
-                    b.ToTable("Posts");
-                });
-
-            modelBuilder.Entity("EntityCoreCourse.Posts", b =>
-                {
-                    b.HasOne("EntityCoreCourse.Models.Blog", "Blog")
-                        .WithMany("Posts")
-                        .HasForeignKey("BlogId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Blog");
-                });
-
-            modelBuilder.Entity("EntityCoreCourse.Models.Blog", b =>
-                {
-                    b.Navigation("Posts");
+                    b.ToTable("Blogs", (string)null);
                 });
 #pragma warning restore 612, 618
         }

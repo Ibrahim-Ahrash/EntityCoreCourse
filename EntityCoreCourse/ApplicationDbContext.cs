@@ -18,6 +18,7 @@ namespace EntityCoreCourse
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             new BlogEntityTypeConfiuration().Configure(modelBuilder.Entity<Blog>());
+            modelBuilder.HasDefaultSchema("blogging"); //add defualt schema in all
         }
 
         public DbSet<Blog> Blogs { get; set; }
